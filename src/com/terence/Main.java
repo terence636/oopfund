@@ -19,7 +19,7 @@ public class Main {
         listOfStudents[1] = new Student("hs","cai",15);
         listOfStudents[2] = new Student("eh","ng",20);
         javaCourse.enroll(listOfStudents);
-
+        javaCourse.unEnroll(7);
         // Total Students
         System.out.println("Total Students is: " + javaCourse.countStudents());
 
@@ -30,6 +30,5 @@ public class Main {
         //Student bestStudent = javaCourse.bestGrade();
         javaCourse.printRanking();
 
-        System.out.println("Test");
     }
 }

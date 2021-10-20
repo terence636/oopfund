@@ -25,11 +25,15 @@ public class Course {
 
     }
 
-    public void unEnroll(Student student){
+    public void unEnroll(int studentId){
         //TODO remove this student from the collection
         // Hint: check if that really is this student
-        if(students.contains(student))
-            students.remove(student);
+        for(Student student: students ) {
+            if(student.id == studentId) {
+                students.remove(student);
+                break;
+            }
+        }
     }
 
     public int countStudents(){
@@ -57,10 +61,9 @@ public class Course {
         if(students.size() < 0)
             return;
         Collections.sort(students);
-        int avg = getAvgGrade();
         for(Student student: students) {
-            String isAvg = student.getGrade() > avg ? "True" : "False";
-            System.out.println("Student Name: " + student.firstName + student.lastName + "   Grade: " + student.getGrade() + "   AboveAvg: " + isAvg);
+            String isAvg = student.getGrade() > getAvgGrade() ? "True" : "False";
+            System.out.println("Student Name: " + student.printFullName() + "   Grade: " + student.getGrade() + "   AboveAvg: " + isAvg);
         }
     }
 

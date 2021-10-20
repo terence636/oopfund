@@ -7,13 +7,14 @@ public class Student implements Comparable {
     static int registration=0;
     int grade;
     int year;
+    int id;
 
     public Student(String firstName, String lastName){
         this.firstName = firstName;
         this.lastName = lastName;
         this.year = 1;
         this.grade = 0;
-        this.registration++;
+        this.id = ++registration;
 
     }
 
@@ -22,7 +23,7 @@ public class Student implements Comparable {
         this.lastName = lastName;
         this.year = year;
         this.grade = grade;
-        this.registration++;
+        this.id = ++registration;
     }
 
     public Student(String firstName, String lastName, int grade){
@@ -30,17 +31,17 @@ public class Student implements Comparable {
         this.lastName = lastName;
         this.year = 1;
         this.grade = grade;
-        this.registration++;
+        this.id = ++registration;
 
     }
 
-    public void printFullName(){
-     System.out.println("Name: " + lastName + firstName);
+    public String printFullName(){
+     return lastName + firstName;
     }
 
     public boolean isApproved(){
         //TODO implement: should return true if grade >= 60
-        return grade > 60;
+        return grade >= 60;
     }
 
     public int changeYearIfApproved(){
